@@ -2,14 +2,13 @@
 
 A modular Universal Asynchronous Receiver-Transmitter (UART) design.
 
-## Day 1: Baud Rate Generator
-- **Module:** `rtl/uart_baud_gen.v`
-- **Function:** Generates tick pulses for clock division to set standard baud rates.
+## Project Structure
+- **rtl/**: Core design modules (Baud rate generator, TX, RX, FIFO buffer)
+- **tb/**: Testbenches and simulation verification
 
-## Day 2: UART Transmitter
-- **Module:** `rtl/uart_tx.v`
-- **Function:** Implements the FSM (IDLE, START, DATA, STOP) and shift register to transmit 8-bit serial data.
-
-## Day 3: UART Receiver
-- **Module:** `rtl/uart_rx.v`
-- **Function:** Implements 16x oversampling for start-bit detection, mid-bit sampling, and serial-to-parallel conversion.
+## Modules Overview
+1. **Baud Rate Generator** (`uart_baud_gen.v`): Generates configurable tick pulses.
+2. **UART Transmitter** (`uart_tx.v`): Implements FSM and shift register for serial data transmission.
+3. **UART Receiver** (`uart_rx.v`): Features 16x oversampling and start-bit detection.
+4. **FIFO Buffer** (`uart_fifo.v`): Manages data flow smoothly between clock domains/interfaces.
+5. **Testbench** (`tb/uart_tb.v`): Validates end-to-end loopback and functionality.
